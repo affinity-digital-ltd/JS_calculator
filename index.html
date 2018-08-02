@@ -7,26 +7,31 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class='display'>
-      <form></form>
+    <div class='calculator-container'>
+      <div class = 'display-container'>
+        <form>
+          <input data-view class = 'textView'>
+        </form>
+      </div>
+      <div class = 'button-container' data-behavior='btn-container'>
+        <button data-input = 'number'  = 7>7</button>
+        <button data-input = 'number'>8</button>
+        <button data-input = 'number'>9</button>
+        <button data-input = 'operator'>/</button>
+        <button data-input = 'number' >4</button>
+        <button data-input = 'number'>5</button>
+        <button data-input = 'number'>6</button>
+        <button data-input='operator'>X</button>
+        <button  data-input = 'number'>1</button>
+        <button data-input = 'number'>2</button>
+        <button data-input = 'number'>3</button>
+        <button data-input = 'number'>0</button>
+        <button  data-input='operator'>-</button>
+        <button  data-input='operator'>+</button>
+        <button data-behavior='equals'>=</button>
+        <button data-behavior='clear'>AC</button>
+      </div>
     </div>
-    <div>
-      <button data-value = 7>7</button>
-      <button data-value = 8>8</button>
-      <button data-value = 9>9</button>
-      <button data-behavior = 'divide'>/</button>
-      <button data-value = ></button>
-      <button data-value = ></button>
-      <button data-value = ></button>
-      <button data-value = ></button>
-      <button data-value = ></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-    </div>
-    <script src="script.js" ></script>
+    <script src="calculator.js" ></script>
   </body>
 </html>

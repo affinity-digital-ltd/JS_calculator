@@ -1,0 +1,37 @@
+.calculator-container {
+  /*position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);*/
+
+}
+
+.button-container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(4, 50px);
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+}
+
+.subtract {
+  grid-column-start: 4;
+  grid-row-start: 3;
+  }
+
+  .add {
+  grid-column-start: 4;
+  grid-row-start: 4;
+  }
+
+  .display-container {
+    width: 200px;
+    font-size: 25px;
+    padding: 5px;
+    margin-bottom: 5px; 
+    text-align: right;
+  }
