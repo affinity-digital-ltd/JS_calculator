@@ -20,7 +20,7 @@ function equals () {
       subtract(num1, num2)
       textView.innerHTML = (subtract(num1, num2))
       break
-    case 'X':
+    case 'x':
       multiply(num1, num2)
       textView.innerHTML = (multiply(num1, num2))
       break
@@ -60,7 +60,7 @@ function calculate () {
 equalsButton.addEventListener('click', () => {
   calculate()
 })
-function clear() {
+function clear () {
   calculation = []
   num1 = ''
   num2 = ''
