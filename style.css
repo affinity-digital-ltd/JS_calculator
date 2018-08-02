@@ -30,8 +30,10 @@ button {
 
   .display-container {
     width: 200px;
+    height: 40px;
     font-size: 25px;
     padding: 5px;
     margin-bottom: 5px; 
     text-align: right;
+    background-color: burlywood;
   }
