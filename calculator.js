@@ -2,16 +2,32 @@
 const equalsButton = document.querySelector('button[data-behavior="equals"]')
 const clearButton = document.querySelector('button[data-behavior="clear"]')
 const textView = document.querySelector('div[data-behavior="view"]')
+
+equalsButton.addEventListener('click', () => {
+  conclude()
+})
+
+clearButton.addEventListener('click', () => {
+  clear()
+})
+
 let calculation = []
 let num1 = ''
 let num2 = ''
 let currentOperator = ''
 
-
-
 // type operators into the calculator display.
 let operatorButtons = document.querySelectorAll('button[data-behavior="operator"]')
-let addOperators = function (e) {
+operatorButtons.forEach(function (e, index) {
+  e.addEventListener('click', function (e) {
+    currentOperator = (e.target.innerHTML)
+    textView.innerHTML = currentOperator
+    num1 = calculation.join('')
+    num1 = Number(num1)
+    calculation = []
+  }, false)
+})
+/*let addOperators = function (e) {
   e.addEventListener('click', function (e) {
     currentOperator = (e.target.innerHTML)
     textView.innerHTML = currentOperator
@@ -22,7 +38,7 @@ let addOperators = function (e) {
 }
 for (var i = 0; i < operatorButtons.length; i++) {
   addOperators(operatorButtons[i])
-}
+}*/
 
 // type numbers into the calculator display.
 document.querySelector('div[data-behavior="btn-container"]').addEventListener('click', function (e) {
@@ -61,9 +77,7 @@ function equals () {
       break
   }
 }
-equalsButton.addEventListener('click', () => {
-  conclude()
-})
+
 function clear () {
   calculation = []
   num1 = ''
@@ -71,6 +85,3 @@ function clear () {
   currentOperator = ''
   textView.innerHTML = ''
 }
-clearButton.addEventListener('click', () => {
-  clear()
-})

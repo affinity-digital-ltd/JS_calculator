@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <button class="click-me">Button 1</button>
+  <button class="click-me">Button 2</button>
+  <button class="click-me">Button 3</button>
+  <script>
+    
+    var btns = document.querySelectorAll('.click-me');
+
+    btns.forEach(e => {
+      e.addEventListener('click', function (event) {
+        console.log('function: ', e)
+      }, false)
+})
+    
+    
+    
+    
+    
+    /*var addEvent = function (elem) {
+      elem.addEventListener('click', function (event) {
+        console.log('function: ', elem);
+      }, false);
+    }
+
+    for (var i = 0; i < btns.length; i++) {
+      // Option 1: event.target
+      btns[i].addEventListener('click', function (event) {
+        console.log('event.target: ', event.target);
+    }, false);
+      
+    // Option 2: a function
+    addEvent(btns[i]);
+    
+  }*/ 
+  
+  
+  </script>
+  
+</body>
+</html>
