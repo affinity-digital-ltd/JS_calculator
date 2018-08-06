@@ -2,43 +2,32 @@
 const equalsButton = document.querySelector('button[data-behavior="equals"]')
 const clearButton = document.querySelector('button[data-behavior="clear"]')
 const textView = document.querySelector('div[data-behavior="view"]')
+const operatorButtons = document.querySelectorAll('button[data-behavior="operator"]')
+const buttons = document.querySelectorAll('button[data-behavior="number"]')
+
+let userInput = []
+let num1 = ''
+let num2 = ''
+let currentOperator = ''
 
 equalsButton.addEventListener('click', () => {
-  conclude()
+  calculate()
 })
 
 clearButton.addEventListener('click', () => {
   clear()
 })
 
-let calculation = []
-let num1 = ''
-let num2 = ''
-let currentOperator = ''
+operatorButtons.forEach((operatorButton) => {
+  operatorButton.addEventListener('click', (event) => {
+    typeOperator(event)
+  })
+})
 
-// type operators into the calculator display.
-function typeOperators (event) {
-  event.addEventListener('click', function (event) {
-    currentOperator = (event.target.innerHTML)
-    textView.innerHTML = currentOperator
-    num1 = calculation.join('')
-    num1 = Number(num1)
-    calculation = []
-  }
-  )
-}
-
-const operatorButtons = document.querySelectorAll('button[data-behavior="operator"]')
-operatorButtons.forEach(function (event) {
-  typeOperators(event)
-}, false)
-
-// type numbers into the calculator display.
-document.querySelector('div[data-behavior="btn-container"]').addEventListener('click', function (event) {
-  if (event.target.dataset.behavior === 'number') {
-    calculation.push(event.target.innerHTML)
-    textView.innerHTML = calculation.join('')
-  }
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    typeNumber(event)
+  })
 })
 
 const add = (num1, num2) => num1 + num2
@@ -46,13 +35,24 @@ const subtract = (num1, num2) => num1 - num2
 const multiply = (num1, num2) => num1 * num2
 const divide = (num1, num2) => num1 / num2
 
-function conclude () {
-  let x = calculation.join('')
-  num2 = Number(x)
-  equals(num1, num2)
+// type operators into the calculator display.
+function typeOperator (event) {
+  currentOperator = event.target.innerHTML
+  textView.innerHTML = currentOperator
+  num1 = Number(userInput.join(''))
+  userInput = []
 }
 
-function equals () {
+// type numbers into the calculator display.
+function typeNumber (event) {
+  userInput.push(event.target.innerHTML)
+  textView.innerHTML = userInput.join('')
+}
+
+function calculate () {
+  // Determine 2nd number
+  num2 = Number(userInput.join(''))
+
   switch (currentOperator) {
     case '+':
       add(num1, num2)
@@ -74,7 +74,7 @@ function equals () {
 }
 
 function clear () {
-  calculation = []
+  userInput = []
   num1 = ''
   num2 = ''
   currentOperator = ''
