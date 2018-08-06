@@ -34,9 +34,9 @@ operatorButtons.forEach(function (event) {
 }, false)
 
 // type numbers into the calculator display.
-document.querySelector('div[data-behavior="btn-container"]').addEventListener('click', function (e) {
-  if (e.target.dataset.behavior === 'number') {
-    calculation.push(e.target.innerHTML)
+document.querySelector('div[data-behavior="btn-container"]').addEventListener('click', function (event) {
+  if (event.target.dataset.behavior === 'number') {
+    calculation.push(event.target.innerHTML)
     textView.innerHTML = calculation.join('')
   }
 })
